@@ -16,6 +16,10 @@ The secrets is private so you don't need to worry about leaking your data.
 You can find all clients from:
 https://github.com/txthinking/brook/releases
 
+# Usage
+wss://"your repl's domain":443 --password "passwd"
+
+
 # Sleep
 May the service sleep,you need a web monitor like UptimeRobot to keep it work.
 https://uptimerobot.com
