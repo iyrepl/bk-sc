@@ -21,7 +21,10 @@ https://github.com/txthinking/brook/releases
 
 # Usage
 wss://"your repl's domain":443 --password "passwd"
-
+#
+For linux(bash)
+#### brook wssclient -s wss://"your repl's domain":443 -p "passwd" --socks5 127.0.0.1:1080
+It will open a socks5 proxy on PORT 1080.
 
 # Sleep
 May the service sleep,you need a web monitor like UptimeRobot to keep it work.
