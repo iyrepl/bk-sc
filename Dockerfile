@@ -17,7 +17,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     sysctl -p  && \
     echo -e "BBR启动成功!"'
 ADD nginx.conf /usr/local/nginx/conf
-RUN wget https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz && \ -O /usr/local/bin/panindex.tar.gz && \
+RUN wget https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O /usr/local/bin/panindex.tar.gz && \
     tar -zxvf panindex.tar.gz && \
     mv PanIndex-linux-amd64 panindex && \
     rm -f panindex.tar.gz & rm -f LICENSE && \
