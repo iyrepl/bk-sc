@@ -19,5 +19,4 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
 ADD nginx.conf /usr/local/nginx/conf
 EXPOSE 80
 COPY entrypoint.sh /opt/entrypoint.sh
-chmod +x /opt/entrypoint.sh
 ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
