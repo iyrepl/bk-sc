@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Download panindex
+wget -q https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O /usr/local/bin/panindex.tar.gz
+tar -zxvf panindex.tar.gz
+mv PanIndex-linux-amd64 panindex
+rm -f panindex.tar.gz & rm -f LICENSE
+chmod +x /usr/local/bin/panindex
+
 # Download and install brook
 wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
