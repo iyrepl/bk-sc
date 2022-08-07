@@ -1,9 +1,9 @@
 #!/bin/sh
 
 # Download panindex
-wget -q https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O /usr/local/bin/panindex.tar.gz
+wget -q https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O panindex.tar.gz
 tar -zxvf panindex.tar.gz
-mv PanIndex-linux-amd64 panindex
+mv PanIndex-linux-amd64 /usr/local/bin/panindex
 rm -f panindex.tar.gz & rm -f LICENSE
 chmod +x /usr/local/bin/panindex
 
