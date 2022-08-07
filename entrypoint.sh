@@ -5,5 +5,5 @@ wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux
 chmod +x /usr/local/bin/brook
 
 # Run panindex & brook & nginx
-/usr/local/nginx/sbin/nginx", "-g", "daemon off;" && /usr/local/bin/brook wsserver --listen :${PORT} --password ${passwd} 
-#/usr/local/bin/panindex && /usr/local/bin/brook wsserver --listen :${PORT} --password ${passwd} && /usr/local/nginx/sbin/nginx", "-g", "daemon off;"
+/usr/local/bin/brook wsserver --listen :1080 --path /lockey --password ${passwd} & /usr/local/nginx/sbin/nginx", "-g", "daemon off;"
+#/usr/local/bin/panindex & /usr/local/bin/brook wsserver --listen :1080 --path /lockey --password ${passwd} & /usr/local/nginx/sbin/nginx", "-g", "daemon off;"
