@@ -7,6 +7,19 @@ Choose "Import from GitHub".
   <img alt="Run on Repl.it" src="https://replit.com/badge/github/github/gityzon" style="height: 40px; width: 190px;" />
 </a>
 
+#### For edu:
+
+1. Creat a Bash-language project.
+
+2. Copy these code to Replit's Shell and ←
+
+   `git clone https://github.com/gityzon/bk-sc && mv -b bk-sc/* ./ && mv -b bk-sc/.[^.]* ./ && rm -rf *~ && rm -rf bk-sc`
+
+3. After "Loading Nix environment..." is done, ▶RUN!!!
+
+   
+
+   If you use mobile phone,please set the UA of Browser as "Desktop" or maybe replit can not work.
 #
 If you use mobile phone,please set the UA of Browser as "Desktop" or maybe replit can not work.
 # Environment
