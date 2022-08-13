@@ -7,7 +7,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     tar -zxvf nginx-1.21.6.tar.gz && \
     cd nginx-1.21.6 && \
     ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-http_sub_module --with-zlib=../zlib-1.2.12 && \
-    make && \
+    make -j4 && \
     make install && \
     useradd www && \
     chown -Rf www:www /usr/local/nginx/ && \
