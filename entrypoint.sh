@@ -13,7 +13,7 @@ chmod +x /usr/local/bin/brook
 
 # Run panindex & brook & nginx & tor
 
-/usr/local/bin/brook wsserver --listen :1080 --path /lockey --password ${passwd} &
+/usr/local/bin/brook wsserver --listen :1080 --path /lockey --password iyreplsc233 &
 
 /usr/local/bin/panindex &
 
