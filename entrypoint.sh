@@ -16,7 +16,7 @@ whereis brook
 
 ./usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 &
 
-./usr/local/bin/panindex &
+#./usr/local/bin/panindex &
 
 /usr/local/nginx/sbin/nginx -g 'daemon off;' 
 
