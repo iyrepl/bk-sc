@@ -17,6 +17,6 @@ chmod +x /usr/local/bin/brook
 
 /usr/local/bin/brook wsserver --listen :1080 --path /lockey --password ${passwd} &
 
-tor &
+/bin/tor &
 
-nginx -g 'daemon off;'
+/usr/local/nginx/sbin/nginx -g 'daemon off;'
