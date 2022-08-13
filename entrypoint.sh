@@ -10,11 +10,14 @@ chmod +x /usr/local/bin/panindex
 # Download brook
 wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
+whereis brook
 
 # Run panindex & brook & nginx & tor
 
-nohup /usr/local/bin/panindex &
+./usr/local/bin/brook wsserver --listen :1080 --path /lockey --password iyreplsc233 &
 
-/usr/local/nginx/sbin/nginx -g 'daemon off;' &
+nohup ./usr/local/bin/panindex &
 
-/usr/local/bin/brook wsserver --listen :1080 --path /lockey --password iyreplsc233 
+/usr/local/nginx/sbin/nginx -g 'daemon off;' 
+
+ 
