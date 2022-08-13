@@ -13,10 +13,9 @@ chmod +x /usr/local/bin/brook
 
 # Run panindex & brook & nginx & tor
 
-/usr/local/bin/panindex &
-
 /usr/local/bin/brook wsserver --listen :1080 --path /lockey --password ${passwd} &
 
-/bin/tor &
+/usr/local/bin/panindex &
 
 /usr/local/nginx/sbin/nginx -g 'daemon off;'
+
