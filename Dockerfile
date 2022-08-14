@@ -20,7 +20,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     tar -zxvf panindex.tar.gz && \
     mv PanIndex-linux-amd64 /usr/local/bin/panindex && \
     rm -f panindex.tar.gz & rm -f LICENSE && \
-    chmod +x /usr/local/bin/panindex && \
+    chmod +x /usr/local/bin/panindex
 ADD nginx.conf /usr/local/nginx/conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY brook /usr/local/bin/brook
