@@ -1,24 +1,13 @@
 #!/bin/sh
 
-# Download panindex
-wget -q https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O panindex.tar.gz
-tar -zxvf panindex.tar.gz
-mv PanIndex-linux-amd64 /usr/local/bin/panindex
-rm -f panindex.tar.gz & rm -f LICENSE
-chmod +x /usr/local/bin/panindex
-
 # Download brook
 wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
-whereis brook
 
-# Run panindex & brook & nginx & tor
+# Run brook & nginx & tor
 
 ./usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 &
 
-./usr/local/bin/panindex &
+/usr/bin/tor
 
-/usr/local/nginx/sbin/nginx -g 'daemon off;' 
-while [[ true ]]; do
-    sleep 1
-done
+nginx -g 'daemon off;'
