@@ -21,7 +21,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     mv PanIndex-linux-amd64 /usr/local/bin/panindex && \
     rm -f panindex.tar.gz & rm -f LICENSE && \
     chmod +x /usr/local/bin/panindex && \
-    wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook && \
+    wget https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook && \
     chmod +x /usr/local/bin/brook && \
     nohup ./usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 & && \
     nohup ./usr/local/bin/panindex &
