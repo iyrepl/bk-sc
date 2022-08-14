@@ -15,7 +15,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     echo 'echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf  && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
-    echo -e "BBR启动成功!"' && 
+    echo -e "BBR启动成功!"' && \
     wget https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O panindex.tar.gz && \
     tar -zxvf panindex.tar.gz && \
     mv PanIndex-linux-amd64 /usr/local/bin/panindex && \
