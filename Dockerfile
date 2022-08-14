@@ -13,7 +13,6 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     useradd www && \
     chown -Rf www:www /usr/local/nginx/ && \
     mkdir /var/log/nginx  && \
-    mkdir /var/log/supervisor && \
     echo 'echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf  && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
@@ -24,6 +23,8 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     rm -f panindex.tar.gz & rm -f LICENSE && \
     chmod +x /usr/local/bin/panindex && \
     chmod +x /usr/local/bin/brook
+RUN whereis tor
+RUN whereis supervisord
 COPY nginx.conf /usr/local/nginx/conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 80
