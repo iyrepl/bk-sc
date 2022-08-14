@@ -23,4 +23,6 @@ RUN nohup /usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --pas
 COPY nginx.conf /usr/local/nginx/conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 80
-ENTRYPOINT [ "/usr/local/nginx/sbin/nginx", "-g", "daemon off;" ]
+COPY entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+CMD /opt/entrypoint.sh
