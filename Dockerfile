@@ -1,6 +1,7 @@
 FROM debian:latest
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt install ssh wget git unzip screen gcc libpcre3-dev libssl-dev make supervisor -y
+RUN DEBIAN_FRONTEND=noninteractive apt install ssh wget git unzip screen gcc libpcre3-dev libssl-dev make tor supervisor -y
+COPY brook /usr/local/bin/brook
 RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     tar -zxvf zlib-1.2.12.tar.gz && \
     wget https://nginx.org/download/nginx-1.22.0.tar.gz && \
@@ -12,6 +13,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     useradd www && \
     chown -Rf www:www /usr/local/nginx/ && \
     mkdir /var/log/nginx  && \
+    mkdir /var/log/supervisor && \
     echo 'echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf  && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
@@ -20,19 +22,10 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     tar -zxvf panindex.tar.gz && \
     mv PanIndex-linux-amd64 /usr/local/bin/panindex && \
     rm -f panindex.tar.gz & rm -f LICENSE && \
-    chmod +x /usr/local/bin/panindex
-ADD nginx.conf /usr/local/nginx/conf
+    chmod +x /usr/local/bin/panindex && \
+    chmod +x /usr/local/bin/brook
+COPY nginx.conf /usr/local/nginx/conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY brook /usr/local/bin/brook
-RUN chmod +x /usr/local/bin/brook
-#RUN wget https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O /usr/local/bin/panindex.tar.gz && \
-#    tar -zxvf panindex.tar.gz && \
-#    mv PanIndex-linux-amd64 panindex && \
-#    rm -f panindex.tar.gz & rm -f LICENSE && \
-#    echo -e "panindex下载成功!"'
 EXPOSE 80
-#COPY entrypoint.sh /opt/entrypoint.sh
-#RUN chmod +x /opt/entrypoint.sh
-#CMD /opt/entrypoint.sh
-ENTRYPOINT ["/usr/bin/supervisord"]
+CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf" ]
 
