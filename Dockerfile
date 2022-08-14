@@ -22,5 +22,5 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     chmod +x /usr/local/bin/brook
 COPY nginx.conf /usr/local/nginx/conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-EXPOSE 80
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf" ]
+EXPOSE 80
