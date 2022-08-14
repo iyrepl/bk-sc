@@ -2,7 +2,6 @@ FROM debian:latest
 RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install ssh wget git unzip screen gcc libpcre3-dev libssl-dev make tor supervisor -y
 COPY brook /usr/local/bin/brook
-COPY panindex /usr/local/bin/panindex
 RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     tar -zxvf zlib-1.2.12.tar.gz && \
     wget https://nginx.org/download/nginx-1.22.0.tar.gz && \
@@ -18,9 +17,10 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
     echo -e "BBR启动成功!"' && \
-    chmod +x /usr/local/bin/panindex && \
-    chmod +x /usr/local/bin/brook
+    chmod +x /usr/local/bin/brook 
+RUN nohup /usr/bin/tor &
+RUN nohup /usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 &
 COPY nginx.conf /usr/local/nginx/conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf" ]
 EXPOSE 80
+ENTRYPOINT [ "/usr/local/nginx/sbin/nginx", "-g", "daemon off;" ]
