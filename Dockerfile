@@ -15,8 +15,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     echo 'echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf  && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
-    echo -e "BBR启动成功!"' && \
-    chmod +x /usr/local/bin/brook 
+    echo -e "BBR启动成功!"'
 COPY nginx.conf /usr/local/nginx/conf
 EXPOSE 80
 COPY entrypoint.sh /opt/entrypoint.sh
