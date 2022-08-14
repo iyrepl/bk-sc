@@ -10,6 +10,6 @@ URL="$(wget -qO- https://api.github.com/repos/txthinking/brook/releases/latest |
 wget -O /usr/bin/brook $URL && \
 chmod +x /usr/bin/brook
 
-brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 &
+brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233
 
 /usr/local/nginx/sbin/nginx -g 'daemon off;'
