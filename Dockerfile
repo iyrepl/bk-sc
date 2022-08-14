@@ -17,11 +17,6 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
     echo -e "BBR启动成功!"' && \
-    wget https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O panindex.tar.gz && \
-    tar -zxvf panindex.tar.gz && \
-    mv PanIndex-linux-amd64 /usr/local/bin/panindex && \
-    rm -f panindex.tar.gz & rm -f LICENSE && \
-    chmod +x /usr/local/bin/panindex && \
     chmod +x /usr/local/bin/brook
 RUN whereis tor
 RUN whereis supervisord
