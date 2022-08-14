@@ -23,7 +23,7 @@ RUN wget https://github.com/gitiy1/nginxbbr/raw/main/zlib-1.2.12.tar.gz && \
     chmod +x /usr/local/bin/panindex && \
     wget https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook && \
     chmod +x /usr/local/bin/brook && \
-    nohup ./usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 & && \
+    nohup ./usr/local/bin/brook wsserver --listen :1080 --path /iyreplsc233 --password iyreplsc233 &  && \
     nohup ./usr/local/bin/panindex &
 ADD nginx.conf /usr/local/nginx/conf
 #RUN wget https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O /usr/local/bin/panindex.tar.gz && \
