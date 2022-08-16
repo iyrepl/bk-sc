@@ -1,6 +1,20 @@
-URL="$(wget -qO- https://api.github.com/repos/txthinking/brook/releases/latest | grep -E "browser_download_url.*brook_linux_amd64" | cut -f4 -d\")" && \
-    wget -O /usr/bin/brook $URL && \
-    chmod +x /usr/bin/brook
+#!/bin/sh
+port=1080
+passwd=lockey
+path=lockey
+
+# Download panindex
+wget -q https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O panindex.tar.gz
+tar -zxvf panindex.tar.gz
+mv PanIndex-linux-amd64 /usr/local/bin/panindex
+rm -f panindex.tar.gz & rm -f LICENSE
+chmod +x /usr/local/bin/panindex
+
 ## Install brook
+wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -O /usr/local/bin/brook
+chmod +x /usr/local/bin/brook
+
 ## Start service
-brook wsserver --listen :${PORT} --password ${passwd}
+panindex &
+brook wsserver --listen :${port} --password ${passwd} --path ${path} &
+/usr/bin/tor &
