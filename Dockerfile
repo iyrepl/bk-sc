@@ -1,6 +1,10 @@
 FROM iyserver/bbase:latest
 COPY zlib-1.2.12.tar.gz /root
 WORKDIR /root
+RUN apt update
+RUN DEBIAN_FRONTEND=noninteractive apt install wget git unzip gcc libpcre3-dev libssl-dev libpcre3 libperl-dev zlib1g-dev make build-essential supervisor tor -y
+COPY entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
 RUN cd /root && \
     tar -zxvf zlib-1.2.12.tar.gz && \
     git clone https://github.com/yaoweibin/ngx_http_substitutions_filter_module.git && \
@@ -19,6 +23,7 @@ RUN cd /root && \
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf  && \
     sysctl -p  && \
     echo -e "BBR启动成功！"'
-ADD nginx.conf /usr/local/nginx/conf
+ADD nginx.conf /usr/local/nginx/conf 
 EXPOSE 80
+CMD ["sh", "-c", "/opt/entrypoint.sh"]
 ENTRYPOINT [ "/usr/local/nginx/sbin/nginx", "-g", "daemon off;" ]
