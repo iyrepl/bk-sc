@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM iyserver/bbase:latest
 COPY zlib-1.2.12.tar.gz /root
 WORKDIR /root
 RUN cd /root && \
