@@ -1,4 +1,4 @@
-FROM iyserver/bbase:latest
+FROM debian:latest
 COPY zlib-1.2.12.tar.gz /root
 WORKDIR /root
 RUN apt update
@@ -6,6 +6,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install wget git unzip gcc libpcre3-dev l
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 RUN cd /root && \
+    wget https://nginx.org/download/nginx-1.22.0.tar.gz && \
     tar -zxvf zlib-1.2.12.tar.gz && \
     tar -zxvf nginx-1.22.0.tar.gz && \
     cd nginx-1.22.0 && \
