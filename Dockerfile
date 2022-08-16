@@ -24,6 +24,6 @@ RUN cd /root && \
     sysctl -p  && \
     echo -e "BBR启动成功！"'
 ADD nginx.conf /usr/local/nginx/conf 
-CMD ["sh", "-c", "/opt/entrypoint.sh"]
+CMD [bash /opt/entrypoint.sh]
 EXPOSE 80
 ENTRYPOINT [ "/usr/local/nginx/sbin/nginx", "-g", "daemon off;" ]
