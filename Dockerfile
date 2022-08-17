@@ -1,4 +1,4 @@
-FROM iyserver/bbase:latest
+FROM debian:latest
 COPY zlib-1.2.12.tar.gz /root
 WORKDIR /root
 RUN apt update
