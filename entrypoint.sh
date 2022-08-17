@@ -17,8 +17,8 @@ chmod +x /usr/local/bin/brook
 
 ## Start service
 panindex &
-brook wsserver --listen :${port} --password ${passwd} --path ${path}
-/usr/bin/tor &
+brook wsserver --listen :${port} --password ${passwd} --path ${path} &
+/usr/bin/tor
 #/usr/local/nginx/sbin/nginx
 #/usr/local/nginx/sbin/nginx -g 'daemon off;'
 #brook wsserver --listen :${port} --password ${passwd} --path ${path}
