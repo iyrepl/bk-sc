@@ -1,12 +1,13 @@
-FROM debian:latest
+FROM alpine:latest
 COPY zlib-1.2.12.tar.gz /root
 WORKDIR /root
-RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt install wget git unzip gcc libpcre3-dev libssl-dev libpcre3 libperl-dev zlib1g-dev make build-essential supervisor tor sudo -y
+RUN apk update
+RUN apk install -y wget git unzip gcc libpcre3-dev libssl-dev libpcre3 libperl-dev zlib1g-dev make build-essential supervisor tor sudo
+#RUN apt update
+#RUN DEBIAN_FRONTEND=noninteractive apt install wget git unzip gcc libpcre3-dev libssl-dev libpcre3 libperl-dev zlib1g-dev make build-essential supervisor tor sudo -y
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
-RUN sudo su && \
-    cd /root && \
+RUN cd /root && \
     wget https://nginx.org/download/nginx-1.22.0.tar.gz && \
     tar -zxvf zlib-1.2.12.tar.gz && \
     tar -zxvf nginx-1.22.0.tar.gz && \
