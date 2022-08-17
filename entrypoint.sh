@@ -16,7 +16,7 @@ wget -q https://github.com/txthinking/brook/releases/latest/download/brook_linux
 chmod +x /usr/local/bin/brook
 
 ## Start service
-panindex &
+#panindex &
 #brook wsserver --listen :${port} --password ${passwd} --path ${path} &
 /usr/bin/tor &
 #/usr/local/nginx/sbin/nginx
