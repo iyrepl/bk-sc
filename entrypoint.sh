@@ -19,4 +19,4 @@ chmod +x /usr/local/bin/brook
 panindex &
 brook wsserver --listen :${port} --password ${passwd} --path ${path} &
 /usr/bin/tor &
-/usr/local/nginx/sbin/nginx -g 'daemon off;'
+/usr/local/nginx/sbin/nginx
