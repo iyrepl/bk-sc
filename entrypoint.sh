@@ -4,6 +4,7 @@ passwd=lockey
 path=lockey
 
 # Download panindex
+sudo su
 wget -q https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -O panindex.tar.gz
 tar -zxvf panindex.tar.gz
 mv PanIndex-linux-amd64 /usr/local/bin/panindex
