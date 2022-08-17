@@ -23,5 +23,5 @@ RUN cd /root && \
     echo -e "BBR启动成功！"'
 ADD nginx.conf /usr/local/nginx/conf 
 #CMD [bash /opt/entrypoint.sh]
-EXPOSE 80
+EXPOSE 1080
 ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
