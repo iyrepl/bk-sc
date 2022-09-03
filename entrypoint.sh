@@ -17,4 +17,5 @@ chmod +x /usr/local/bin/brook
 ## Start service
 panindex &
 /usr/bin/tor &
-brook wsserver --listen :${port} --password ${passwd} --path ${path}
+brook wsserver --listen :${port} --password ${passwd} --path ${path} &
+/usr/local/nginx/sbin/nginx
